@@ -1,20 +1,25 @@
-[![Build Status](https://travis-ci.org/a5huynh/oauth2_proxy.svg?branch=master)](https://travis-ci.org/a5huynh/oauth2_proxy) [![license: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![license: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## oauth2_proxy dockerization
 
-This is a Dockerization of the handy dandy
-[bitly OAuth Proxy](https://github.com/bitly/oauth2_proxy).
+**The bitly oauth2_proxy has been [abandoned](https://github.com/bitly/oauth2_proxy/issues/628#issuecomment-417121636)**
 
-Check out the bitly github page for more details on the different command line
+~~This is a Dockerization of the handy dandy~~
+~~bitly OAuth Proxy](https://github.com/bitly/oauth2_proxy).~~
+
+A hard fork has been created by [pusher](https://github.com/pusher) that will be maintained going forward.
+([pusher OAuth Proxy](https://github.com/pusher/oauth2_proxy)).
+
+Check out the pusher github page for more details on the different command line
 options that can be passed in.
 
 This is also an automated
 [Docker Hub build](https://hub.docker.com/r/a5huynh/oauth2_proxy/)
 
 ### Supported tags and respective `Dockerfile` links
-* `2.2-debian` ([Dockerfile](https://github.com/a5huynh/oauth2_proxy/blob/cb657302b1a433e654a6cd97e30aa0c0dee8075c/Dockerfile))
-* `2.2` ([Dockerfile](https://github.com/a5huynh/oauth2_proxy/blob/5c18f223851745d3132faf64cab6ea9bb056fe7f/Dockerfile))
-* `2.1` ([Dockerfile](https://github.com/a5huynh/oauth2_proxy/blob/77b5f5afb919bb9d7983f901504987c9aaf2dfb9/Dockerfile))
+* `2.2-debian` ([Dockerfile](https://github.com/rmn36/oauth2_proxy/blob/cb657302b1a433e654a6cd97e30aa0c0dee8075c/Dockerfile))
+* `2.2` ([Dockerfile](https://github.com/rmn36/oauth2_proxy/blob/5c18f223851745d3132faf64cab6ea9bb056fe7f/Dockerfile))
+* `2.1` ([Dockerfile](https://github.com/rmn36/oauth2_proxy/blob/77b5f5afb919bb9d7983f901504987c9aaf2dfb9/Dockerfile))
 
 ### Quickstart with Docker Compose
 First, configure your client secret/id/cookie secret in the `docker-compose.yml` file
@@ -35,7 +40,7 @@ nginx container serving a simple HTML page.
 
 The following example assumes you have your upstream host located at `upstream:80`
 
-    docker run -P a5huynh/oauth2_proxy \
+    docker run -P rmn36/oauth2_proxy \
         --cookie-secure=false \
         --upstream="http://upstream:80" \
         --http-address="0.0.0.0:4180" \
@@ -65,4 +70,4 @@ environment variables using the following variables below:
     docker run -e OAUTH2_PROXY_COOKIE_SECRET=<cookie-secret> \
         -e OAUTH2_PROXY_CLIENT_ID=<client-id> \
         -e OAUTH2_PROXY_CLIENT_SECRET=<client-secret> \
-        a5huynh/oauth2_proxy
+        rmn36/oauth2_proxy
